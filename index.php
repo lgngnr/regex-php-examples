@@ -11,6 +11,13 @@
         echo "Refer page: $url\n\n";
 
         /**
+         * Get author link
+         */
+        $regex = '#<li class="author">.*?<a .+? href="(.+?)">.+?<\/a>#';
+        echo "Get author link, REGEX: $regex\n";
+        regExecute($regex, $html);
+
+        /**
          * Get post author
          */
         $regex = '#<li class="author">.*?<a.*?>(.+?)<\/a>#';
