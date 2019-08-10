@@ -8,9 +8,16 @@
 
     if ($html)
     {
+        echo "<p>Refer page: $url</p>";
+
+        /**
+         * Get page title
+         */
         $regex = '#<title>(.*?)</title>#';
+        echo "<p>Get page title<br>";
         regExecute($regex, $html);
-        
+        echo "</p>";
+
     }
     else
     {
