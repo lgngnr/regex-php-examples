@@ -24,3 +24,11 @@ Quantifiers:
 ?       - 0 or One
 {3}     - Exact Number
 {3,4}   - Range of Numbers (Minimum, Maximum)
+
+[[:alpha:]] indica qualsiasi lettera, maiuscola o minuscola
+[[:digit:]] indica qualsiasi cifra
+[[:space:]] indica tutti i caratteri di spazio ( trn)
+[[:upper:]] indica le lettere maiuscole
+[[:lower:]] indica le lettere minuscole
+[[:punct:]] indica i caratteri di punteggiatura
+[[:xdigit:]] indica i valori esadecimali
