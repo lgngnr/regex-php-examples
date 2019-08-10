@@ -11,6 +11,13 @@
         echo "Refer page: $url\n\n";
 
         /**
+         * Get post date
+         */
+        $regex = '#<li class="date">(.*?)<\/li>#';
+        echo "Get post date, REGEX: $regex\n";
+        regExecute($regex, $html);
+
+        /**
          * Get author link
          */
         $regex = '#<li class="author">.*?<a .+? href="(.+?)">.+?<\/a>#';
