@@ -13,7 +13,32 @@ The following are all examples of valid delimited patterns.
 - +php+
 - %[a-zA-Z0-9_-]%
 
+**METACHARACTERS**
 
+There are two different sets of meta-characters: those that are recognized anywhere in the pattern except within square brackets, and those that are recognized in square brackets. Outside square brackets, the meta-characters are as follows:
+
+Meta-characters outside square brackets:
+
+- \	general escape character with several uses
+- ^	assert start of subject (or line, in multiline mode)
+- $	assert end of subject or before a terminating newline (or end of line, in multiline mode)
+- .	match any character except newline (by default)
+- [	start character class definition
+- ]	end character class definition
+- |	start of alternative branch
+- (	start subpattern
+- )	end subpattern
+- ?	extends the meaning of (, also 0 or 1 quantifier, also makes greedy quantifiers lazy (see repetition)
+- *	0 or more quantifier
+- +	1 or more quantifier
+- {	start min/max quantifier
+- }	end min/max quantifier
+
+Meta-characters inside square brackets:
+
+- \	general escape character
+- ^	negate the class, but only if the first character
+- \-	indicates character range
 
 ---
 
