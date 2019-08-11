@@ -46,8 +46,8 @@ When using the PCRE functions, it is required that the pattern is enclosed by de
 
 The following are all examples of valid delimited patterns.
 
-/foo bar/
-\#^[^0-9]$\#
-+php+
-%[a-zA-Z0-9_-]%
+- /foo bar/
+- \#^[^0-9]$\#
+- +php+
+- %[a-zA-Z0-9_-]%
 
