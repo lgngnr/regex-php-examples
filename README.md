@@ -151,6 +151,44 @@ The property names represented by xx above are limited to the Unicode general ca
 
 **Anchors \* \$**
 
+- \^ Outside square brackets : assert start of subject (or line, in multiline mode)
+[^0]  which means - all but 0 
+
+- \^ Inside square brackets : negate the class, but only if the first character
+[^A]  which means - all but A & so on
+
+A dollar character ($) is an assertion which is TRUE only if the current matching point is at the end of the subject string, or immediately before a newline character that is the last character in the string (by default). Dollar ($) need not be the last character of the pattern if a number of alternatives are involved, but it should be the last item in any branch in which it appears. Dollar has no special meaning in a character class.
+
+**DOT \.**
+
+Outside a character class, a dot in the pattern matches any one character in the subject, including a non-printing character, but not (by default) newline. If the PCRE_DOTALL option is set, then dots match newlines as well. The handling of dot is entirely independent of the handling of circumflex and dollar, the only relationship being that they both involve newline characters. Dot has no special meaning in a character class.
+
+**Character classes**
+
+An opening square bracket introduces a character class, terminated by a closing square bracket. A closing square bracket on its own is not special. If a closing square bracket is required as a member of the class, it should be the first data character in the class (after an initial circumflex, if present) or escaped with a backslash.
+
+- [a-z] lower case letters
+- [0-9] numeric
+- [A-Z] upper case letters
+- [a-zA-z0-9] lowe upper case letters and numeric
+- [aiu] alternation of a i u letters
+
+- alnum	letters and digits
+- alpha	letters
+- ascii	character codes 0 - 127
+- blank	space or tab only
+- cntrl	control characters
+- digit	decimal digits (same as \d)
+- graph	printing characters, excluding space
+- lower	lower case letters
+- print	printing characters, including space
+- punct	printing characters, excluding letters and digits
+- space	white space (not quite the same as \s)
+- upper	upper case letters
+- word	"word" characters (same as \w)
+- xdigit	hexadecimal digits
+
+**Alternation |**
 
 
 ---
