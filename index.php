@@ -1,5 +1,19 @@
 <?php
 
+    /**
+     * Haxxa czxczxcha
+     * 333.333.333
+     * 333-333-333
+     * Mr Smith
+     * Mr. Smith
+     * Ms Smith
+     * Ms. Smith
+     * Mrs Smith
+     * 
+     * mario.rossi@email.com
+     * mario.rossi56@email.it
+     */
+
     echo "<h1>OPEN SOURCE CODE</h1>";
 
     $url = "https://www.html.it/articoli/espressioni-regolari/";
@@ -69,7 +83,7 @@
         /**
          * Get all links 
          */
-        $regex = '#(http[s{,1}]:\/\/www\..+?\..+)"#';
+        $regex = '#(https?:\/\/www\.\w+?\.\w+[/\w+]*)"#';
         echo "Get Get all links, REGEX: $regex\n";
         regExecute($regex, $html, true);
     }

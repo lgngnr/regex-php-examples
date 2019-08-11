@@ -1,4 +1,6 @@
-EXAMPLES OF USING REGULAR EXPRESSION IN PHP
+# EXAMPLES OF USING REGULAR EXPRESSION IN PHP
+
+## POSIX REGEX [As of PHP 5.3.0, the POSIX Regex extension is deprecated]
 
 .       - Any Character Except New Line
 \d      - Digit (0-9)
@@ -32,3 +34,6 @@ Quantifiers:
 [[:lower:]] indica le lettere minuscole
 [[:punct:]] indica i caratteri di punteggiatura
 [[:xdigit:]] indica i valori esadecimali
+
+## PCRE [Pearl Compatible Regular Expression]
+
