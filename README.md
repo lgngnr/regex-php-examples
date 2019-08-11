@@ -40,7 +40,7 @@ Meta-characters inside square brackets:
 - ^	negate the class, but only if the first character
 - \-	indicates character range
 
-**Escape sequences\\**
+**Escape sequences \\**
 
 If backslash is followed by a non-alphanumeric character, it takes away any special meaning that character may have. This use of backslash as an escape character applies both inside and outside character classes.
 
