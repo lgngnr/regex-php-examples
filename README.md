@@ -39,5 +39,15 @@
 ---
  
   ## PCRE [Pearl Compatible Regular Expression]
+
+  **DELIMITERS**
  
- 
+When using the PCRE functions, it is required that the pattern is enclosed by delimiters. A delimiter can be any non-alphanumeric, non-backslash, non-whitespace character.
+
+The following are all examples of valid delimited patterns.
+
+/foo bar/
+\#^[^0-9]$\#
++php+
+%[a-zA-Z0-9_-]%
+
