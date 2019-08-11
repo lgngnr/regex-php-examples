@@ -42,11 +42,13 @@ Meta-characters inside square brackets:
 
 **Escape sequences \\**
 
-If backslash is followed by a non-alphanumeric character, it takes away any special meaning that character may have. This use of backslash as an escape character applies both inside and outside character classes.
+If backslash is followed by a non-alphanumeric character, it takes away any special meaning that character may have. 
+
+This use of **backslash as an escape character** applies both inside and outside character classes.
 
 For example, if you want to match a "*" character, you write "\*" in the pattern. 
 
-A second use of backslash provides a way of encoding non-printing characters in patterns in a visible manner. 
+A **second use** of backslash provides a way of **encoding non-printing characters** in patterns in a visible manner. 
 
 - \a alarm, that is, the BEL character (hex 07)
 - \cx "control-x", where x is any character
@@ -60,6 +62,96 @@ A second use of backslash provides a way of encoding non-printing characters in 
 - \t tab (hex 09)
 - \xhh character with hex code hh
 - \ddd character with octal code ddd, or backreference
+
+Inside a **character class**, or if the decimal number is greater than 9 and there have not been that many capturing subpatterns, PCRE re-reads up to three octal digits following the backslash, and generates a single byte from the least significant 8 bits of the value. Any subsequent digits stand for themselves. For example:
+
+- \040 is another way of writing a space
+- \40 is the same, provided there are fewer than 40 previous capturing subpatterns
+- \7 is always a back reference
+- \11 might be a back reference, or another way of writing a tab
+- \011 is always a tab
+- \0113 is a tab followed by the character "3"
+- \113 is the character with octal code 113 (since there can be no more than 99 back references)
+- \377 is a byte consisting entirely of 1 bits
+- \81 is either a back reference, or a binary zero followed by the two characters "8" and "1"
+
+The **third use** of backslash is for **specifying generic character types**:
+
+- \d any decimal digit
+- \D any character that is not a decimal digit
+- \h any horizontal whitespace character (since PHP 5.2.4)
+- \H any character that is not a horizontal whitespace character (since PHP 5.2.4)
+- \s any whitespace character
+- \S any character that is not a whitespace character
+- \v any vertical whitespace character (since PHP 5.2.4)
+- \V any character that is not a vertical whitespace character (since PHP 5.2.4)
+- \w any "word" character
+- \W any "non-word" character
+
+Each pair of escape sequences partitions the complete set of characters into two disjoint sets. Any given character matches one, and only one, of each pair.
+
+The **fourth use** of backslash is for **certain simple assertions**. An assertion specifies a condition that has to be met at a particular point in a match, without consuming any characters from the subject string. The use of subpatterns for more complicated assertions is described below. 
+
+The **backslashed assertions** are:
+
+- \b word boundary
+- \B not a word boundary
+- \A start of subject (independent of multiline mode)
+- \Z end of subject or newline at end (independent of multiline mode)
+- \z end of subject (independent of multiline mode)
+- \G first matching position in subject
+
+**Unicode character properties**
+
+- \p{xx} a character with the xx property
+- \P{xx} a character without the xx property
+- \X an extended Unicode sequence
+
+The property names represented by xx above are limited to the Unicode general category properties. Each character has exactly one such property, specified by a two-letter abbreviation. For compatibility with Perl, negation can be specified by including a circumflex between the opening brace and the property name. For example, \p{^Lu} is the same as \P{Lu}.
+
+**Supported property codes**
+
+- C	Other	 
+- Cc	Control	 
+- Cf	Format	 
+- Cn	Unassigned	 
+- Co	Private use	 
+- Cs	Surrogate	 
+- L	Letter	Includes the following properties: Ll, Lm, Lo, Lt and Lu.
+- Ll	Lower case letter	 
+- Lm	Modifier letter	 
+- Lo	Other letter	 
+- Lt	Title case letter	 
+- Lu	Upper case letter	 
+- M	Mark	 
+- Mc	Spacing mark	 
+- Me	Enclosing mark	 
+- Mn	Non-spacing mark	 
+- N	Number	 
+- Nd	Decimal number	 
+- Nl	Letter number	 
+- No	Other number	 
+- P	Punctuation	 
+- Pc	Connector punctuation	 
+- Pd	Dash punctuation	 
+- Pe	Close punctuation	 
+- Pf	Final punctuation	 
+- Pi	Initial punctuation	 
+- Po	Other punctuation	 
+- Ps	Open punctuation	 
+- S	Symbol	 
+- Sc	Currency symbol	 
+- Sk	Modifier symbol	 
+- Sm	Mathematical symbol	 
+- So	Other symbol	 
+- Z	Separator	 
+- Zl	Line separator	 
+- Zp	Paragraph separator	 
+- Zs	Space separator	
+
+**Anchors \* \$**
+
+
 
 ---
 
