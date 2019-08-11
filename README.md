@@ -29,8 +29,8 @@ Meta-characters outside square brackets:
 - (	start subpattern
 - )	end subpattern
 - ?	extends the meaning of (, also 0 or 1 quantifier, also makes greedy quantifiers lazy (see repetition)
-- *	0 or more quantifier
-- +	1 or more quantifier
+- \*	0 or more quantifier
+- \+	1 or more quantifier
 - {	start min/max quantifier
 - }	end min/max quantifier
 
